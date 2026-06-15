@@ -16,7 +16,16 @@ export default defineConfig({
       autoCodeSplitting: true,
     }),
     tanstackStart({
-      server: { entry: "server" },
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+      },
+      pages: [
+        { path: "/" },
+        // add every route path you have, e.g.:
+        // { path: "/about" },
+        // { path: "/dashboard" },
+      ],
     }),
     viteReact(),
   ],
