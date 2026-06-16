@@ -22,7 +22,8 @@ function Stories() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {STORIES.map((s) => (
             <Link key={s.slug} to="/stories/$slug" params={{ slug: s.slug }} className="rounded-2xl border border-border bg-card p-6 transition hover:shadow-md">
-              <p className="font-display text-xl leading-snug">&ldquo;{s.quote}&rdquo;</p>
+              <span className="inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">{s.category}</span>
+              <p className="mt-4 font-display text-xl leading-snug">&ldquo;{s.quote}&rdquo;</p>
               <p className="mt-4 text-sm font-semibold text-primary">— {s.name}</p>
             </Link>
           ))}

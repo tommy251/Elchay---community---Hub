@@ -32,7 +32,7 @@ function GetHelp() {
           <div className="mt-8 rounded-3xl border border-border bg-card p-6 lg:p-8">
             {tab === "support" ? <RequestForm /> : <ReferralForm />}
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">Prefer to talk? WhatsApp us at <a className="text-primary underline" href="https://wa.me/2348000000000">+234 800 000 0000</a>.</p>
+          <p className="mt-6 text-sm text-muted-foreground">Prefer to talk? WhatsApp us at <a className="text-primary underline" href="https://wa.me/2347039593543">+234 703 959 3543</a> · or email <a className="text-primary underline" href="mailto:elchayautismorg@gmail.com">elchayautismorg@gmail.com</a>.</p>
         </div>
       </Section>
     </>
@@ -83,14 +83,22 @@ function BaseForm({ title, fields, success }: { title: string; fields: Field[]; 
       onSubmit={(e) => {
         e.preventDefault();
         setBusy(true);
+        const form = e.target as HTMLFormElement;
+        const fd = new FormData(form);
+        const lines: string[] = [];
+        fields.forEach((f) => lines.push(`${f.label}: ${String(fd.get(f.name) ?? "")}`));
+        const body = `${title} request from the Elchay website:\n\n${lines.join("\n")}`;
+        const href = `mailto:elchayautismorg@gmail.com?subject=${encodeURIComponent(title + " — Elchay website")}&body=${encodeURIComponent(body)}`;
+        window.location.href = href;
         setTimeout(() => {
-          toast.success(success);
-          (e.target as HTMLFormElement).reset();
+          toast.success(success, { description: "Your request was sent to elchayautismorg@gmail.com." });
+          form.reset();
           setBusy(false);
-        }, 600);
+        }, 400);
       }}
     >
       <h2 className="font-display text-2xl font-bold">{title}</h2>
+      <p className="mt-1 text-sm text-muted-foreground">Submissions are sent to <span className="font-semibold text-foreground">elchayautismorg@gmail.com</span>.</p>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {fields.map((f) => (
           <label key={f.name} className={`block ${f.textarea ? "sm:col-span-2" : ""}`}>
@@ -104,7 +112,7 @@ function BaseForm({ title, fields, success }: { title: string; fields: Field[]; 
         ))}
       </div>
       <button disabled={busy} className="mt-6 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60">
-        {busy ? "Sending…" : "Submit"}
+        {busy ? "Opening…" : "Submit"}
       </button>
     </form>
   );

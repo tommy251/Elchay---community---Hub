@@ -46,15 +46,29 @@ function Volunteer() {
             onSubmit={(e) => {
               e.preventDefault();
               setBusy(true);
+              const form = e.target as HTMLFormElement;
+              const fd = new FormData(form);
+              const body = [
+                `Full name: ${fd.get("name")}`,
+                `Email: ${fd.get("email")}`,
+                `Phone: ${fd.get("phone")}`,
+                `City: ${fd.get("city")}`,
+                `Role of interest: ${fd.get("role")}`,
+                "",
+                `About: ${fd.get("about")}`,
+              ].join("\n");
+              const href = `mailto:elchayautismorg@gmail.com?subject=${encodeURIComponent("Volunteer application — Elchay website")}&body=${encodeURIComponent(body)}`;
+              window.location.href = href;
               setTimeout(() => {
-                toast.success("Thank you for volunteering!", { description: "We'll be in touch within a week." });
-                (e.target as HTMLFormElement).reset();
+                toast.success("Thank you for volunteering!", { description: "Your application was sent to elchayautismorg@gmail.com." });
+                form.reset();
                 setBusy(false);
-              }, 600);
+              }, 400);
             }}
             className="rounded-3xl border border-border bg-card p-6 lg:p-8"
           >
             <h2 className="font-display text-2xl font-bold">Apply to volunteer</h2>
+            <p className="mt-1 text-sm text-muted-foreground">Applications are sent to <span className="font-semibold text-foreground">elchayautismorg@gmail.com</span>.</p>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field name="name" label="Full name" required />
               <Field name="email" type="email" label="Email" required />
@@ -72,7 +86,7 @@ function Volunteer() {
                 <textarea name="about" rows={4} className="w-full rounded-xl border border-input bg-background px-3 py-2.5 outline-none focus:border-accent" />
               </label>
             </div>
-            <button disabled={busy} className="mt-5 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60">{busy ? "Sending…" : "Submit application"}</button>
+            <button disabled={busy} className="mt-5 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground disabled:opacity-60">{busy ? "Opening…" : "Submit application"}</button>
           </form>
         </div>
       </Section>

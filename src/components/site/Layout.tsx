@@ -125,8 +125,8 @@ function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider opacity-90">Stay In Touch</h3>
           <p className="mt-3 text-sm opacity-90">@elchayautisminitiative</p>
-          <p className="mt-1 text-sm opacity-90">hello@elchayautism.org</p>
-          <p className="mt-1 text-sm opacity-90">WhatsApp: +234 800 000 0000</p>
+          <p className="mt-1 text-sm opacity-90"><a className="hover:underline" href="mailto:elchayautismorg@gmail.com">elchayautismorg@gmail.com</a></p>
+          <p className="mt-1 text-sm opacity-90">WhatsApp: <a className="hover:underline" href="https://wa.me/2347039593543">+234 703 959 3543</a></p>
         </div>
       </div>
       <div className="border-t border-primary-foreground/15 py-4 text-center text-xs opacity-75">

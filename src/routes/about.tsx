@@ -29,7 +29,7 @@ const TEAM = [
 function About() {
   return (
     <>
-      <PageHero eyebrow="About Us" title="Walking with families — with dignity and hope." lead="Elchay Autism Initiative was founded by parents and clinicians who believed that no Nigerian family should face autism alone, or be told their child has no future." />
+      <PageHero eyebrow="About Us" title="Walking with families — with dignity and hope." lead="Elchay Autism Initiative is a young Nigerian non-profit, formally about five months old, growing out of a centre that has supported neurodivergent learners for more than six years. We exist so no family faces autism alone, or hears that their child has no future." />
       <Section>
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
