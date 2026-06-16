@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart, HandHelping, Users, BookOpen, Calendar, Sparkles, ShieldCheck, Stethoscope, GraduationCap } from "lucide-react";
 import heroPoster from "@/assets/hero-therapy.jpg";
-import heroVideo from "@/assets/hero-dancing.mp4";
 import programsImg from "@/assets/programs.jpg";
 import familyImg from "@/assets/family.jpg";
 import { Section } from "@/components/site/Layout";
@@ -50,12 +49,8 @@ function Home() {
           </div>
           <div className="relative">
             <video
-              src={heroVideo.url}
+              src="/hero-dancing.mp4" autoPlay muted loop playsInline 
               poster={heroPoster}
-              autoPlay
-              muted
-              loop
-              playsInline
               preload="metadata"
               aria-label="A mother and her son dancing joyfully in their living room"
               className="h-auto w-full rounded-3xl object-cover shadow-xl"
