@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Heart, HandHelping, Users, BookOpen, Calendar, Sparkles, ShieldCheck, Stethoscope, GraduationCap } from "lucide-react";
 import heroPoster from "@/assets/hero-therapy.jpg";
+import heroVideo from "@/assets/hero-dancing.mp4.asset.json";
 import programsImg from "@/assets/programs.jpg";
 import familyImg from "@/assets/family.jpg";
 import { Section } from "@/components/site/Layout";
@@ -49,8 +50,12 @@ function Home() {
           </div>
           <div className="relative">
             <video
-              src="/hero-dancing.mp4" autoPlay muted loop playsInline 
+              src={heroVideo.url}
               poster={heroPoster}
+              autoPlay
+              muted
+              loop
+              playsInline
               preload="metadata"
               aria-label="A mother and her son dancing joyfully in their living room"
               className="h-auto w-full rounded-3xl object-cover shadow-xl"
@@ -152,6 +157,62 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* 1,000 Voices campaign band */}
+      <section className="border-y border-border bg-secondary/40">
+        <div className="mx-auto max-w-7xl px-4 py-16 lg:px-6 lg:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Our Flagship Campaign</p>
+              <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">1,000 Voices for Inclusion.</h2>
+              <p className="mt-4 text-muted-foreground">
+                We are gathering 1,000 stories from autistic Nigerians, their families, teachers and clinicians — to change how the country sees autism, and to push for inclusive policy in classrooms, clinics and communities. Add your voice, share a film, or host a screening in your school or workplace.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link to="/get-help" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Share your story</Link>
+                <Link to="/programs/$slug" params={{ slug: "1000-voices" }} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card px-6 py-3 font-semibold text-primary hover:bg-secondary">Learn about the campaign <ArrowRight className="h-4 w-4" /></Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { n: 132, l: "Voices recorded" },
+                { n: 14, l: "Schools engaged" },
+                { n: 9, l: "States reached" },
+              ].map((s) => (
+                <div key={s.l} className="rounded-2xl border border-border bg-card p-5 text-center">
+                  <p className="font-display text-3xl font-bold text-primary"><CountUp end={s.n} /></p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.l}</p>
+                </div>
+              ))}
+              <div className="col-span-3 rounded-2xl bg-primary p-5 text-primary-foreground">
+                <p className="text-xs uppercase tracking-wider opacity-80">Target by April 2026</p>
+                <p className="mt-1 font-display text-xl font-semibold">1,000 voices · 36 states · 1 inclusive Nigeria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* E-Library & digital learning */}
+      <Section>
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="lg:col-span-2 rounded-3xl border border-border bg-card p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Free for every Nigerian family</p>
+            <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">The Elchay E-Library</h2>
+            <p className="mt-4 text-muted-foreground">Plain-language guides, printable worksheets, parent webinars and therapy explainers — built with our clinical team and free to download. Wherever you are in Nigeria, evidence-based autism support is one click away.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/resources" className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-semibold text-accent-foreground">Browse the library <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/programs/$slug" params={{ slug: "digital-learning" }} className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-card px-6 py-3 font-semibold text-primary hover:bg-secondary">Upcoming webinars</Link>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-secondary p-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">Back to school</p>
+            <h3 className="mt-3 font-display text-2xl font-bold">Academic Re-integration</h3>
+            <p className="mt-3 text-muted-foreground">After therapy, we walk children — and their teachers — back into the classroom with shadow support, IEPs and school coaching.</p>
+            <Link to="/programs/$slug" params={{ slug: "academic-reintegration" }} className="mt-4 inline-flex items-center gap-1 font-semibold text-primary hover:text-accent">Learn more <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+        </div>
+      </Section>
 
       {/* Stories */}
       <Section>

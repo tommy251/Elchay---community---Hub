@@ -17,9 +17,9 @@ export const Route = createFileRoute("/partners")({
 });
 
 const TIERS = [
-  { t: "Friend", a: "$1,000+", b: "Logo on our website + impact report" },
-  { t: "Champion", a: "$5,000+", b: "Sponsor a therapy cohort + naming opportunity" },
-  { t: "Catalyst", a: "$25,000+", b: "Co-design a program with our clinical team" },
+  { t: "Friend", a: "₦500,000+", b: "Logo on our website + quarterly impact report" },
+  { t: "Champion", a: "₦2,500,000+", b: "Sponsor a therapy cohort + naming opportunity" },
+  { t: "Catalyst", a: "₦10,000,000+", b: "Co-design a program with our clinical team" },
 ];
 
 function Partners() {
