@@ -4,10 +4,10 @@ import { PageHero, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Elchay Autism Initiative" },
-      { name: "description", content: "Our mission, vision, values and the team behind Elchay Autism Initiative." },
+      { title: "About Our Community — Elchay Autism Initiative" },
+      { name: "description", content: "Our community mission, values and the people behind Elchay Autism Initiative." },
       { property: "og:title", content: "About Elchay" },
-      { property: "og:description", content: "Our mission, vision and team." },
+      { property: "og:description", content: "Our community mission, values and team." },
     ],
   }),
   component: About,
@@ -29,22 +29,22 @@ const TEAM = [
 function About() {
   return (
     <>
-      <PageHero eyebrow="About Us" title="Walking with families — with dignity and hope." lead="Elchay Autism Initiative is a young Nigerian non-profit, formally about five months old, growing out of a centre that has supported neurodivergent learners for more than six years. We exist so no family faces autism alone, or hears that their child has no future." />
+      <PageHero eyebrow="About Our Community" title="Walking with families — with dignity and hope." lead="Elchay is a young Nigerian community, formally about five months old, growing out of a centre that has supported neurodivergent learners for more than six years. We are not an organization that serves people — we are a community of people who show up for each other." />
       <Section>
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-2xl font-bold">Our Mission</h2>
-            <p className="mt-3 text-muted-foreground">To make assessment, therapy, education and advocacy accessible to every child with autism and developmental disabilities — especially those facing financial, social or accessibility barriers.</p>
+            <h2 className="font-display text-2xl font-bold">Our Community Mission</h2>
+            <p className="mt-3 text-muted-foreground">To make assessment, therapy, education and advocacy accessible to every child with autism and developmental disabilities — especially those facing financial, social or accessibility barriers. We do this together, as a community of families, professionals, volunteers and donors.</p>
           </div>
           <div>
-            <h2 className="font-display text-2xl font-bold">Our Vision</h2>
-            <p className="mt-3 text-muted-foreground">A society where neurodivergent children are understood, included and given every chance to flourish in their families, schools and communities.</p>
+            <h2 className="font-display text-2xl font-bold">Our Community Vision</h2>
+            <p className="mt-3 text-muted-foreground">A society where neurodivergent children are understood, included and given every chance to flourish in their families, schools and communities — because a whole community stood behind them.</p>
           </div>
         </div>
       </Section>
       <Section className="!py-0">
         <div className="rounded-3xl bg-secondary/50 p-8 lg:p-12">
-          <h2 className="font-display text-2xl font-bold">Our values</h2>
+          <h2 className="font-display text-2xl font-bold">Our community values</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {VALUES.map((v) => (
               <div key={v.t} className="rounded-2xl bg-background p-5">
@@ -56,7 +56,8 @@ function About() {
         </div>
       </Section>
       <Section>
-        <h2 className="font-display text-2xl font-bold">Meet the team</h2>
+        <h2 className="font-display text-2xl font-bold">Community leaders</h2>
+        <p className="mt-2 text-muted-foreground">The people who coordinate, guide and grow this community.</p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TEAM.map((t) => (
             <div key={t.name} className="rounded-2xl border border-border bg-card p-6">
@@ -68,7 +69,7 @@ function About() {
           ))}
         </div>
         <div className="mt-10">
-          <Link to="/contact" className="inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Get in touch</Link>
+          <Link to="/community" className="inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground">Join the community</Link>
         </div>
       </Section>
     </>

@@ -42,3 +42,12 @@ export const PARTNERS = [
   "Lagos State Ministry of Health", "UNICEF Nigeria", "Special Needs Initiative",
   "Bright Future Schools", "Carecorp Hospitals", "First Bank Foundation",
 ] as const;
+
+export const COMMUNITY_PULSE = [
+  { id: 1, type: "event", tag: "Upcoming Event", title: "Parent Coaching Cohort starts March 15", body: "A 6-week community cohort for caregivers. Limited spaces — register now.", time: "2 days ago", location: "Elchay Centre, Lagos" },
+  { id: 2, type: "story", tag: "New Story", title: "Tunde said 'mummy' for the first time", body: "After 9 months of speech therapy, Tunde's family shared their milestone with the community.", time: "5 days ago" },
+  { id: 3, type: "resource", tag: "New Resource", title: "Sensory Strategies at Home — updated guide", body: "Our clinical team added new low-cost strategies for small spaces. Free download.", time: "1 week ago" },
+  { id: 4, type: "campaign", tag: "Campaign Update", title: "1,000 Voices hits 132 recordings", body: "We have recorded 132 stories across 9 states. Help us reach all 36 by April 2026.", time: "1 week ago" },
+  { id: 5, type: "training", tag: "Training", title: "Inclusive Teachers Workshop — February 22", body: "Free online workshop for teachers. Certificate included. Open to all Nigerian schools.", time: "2 weeks ago", location: "Online" },
+  { id: 6, type: "event", tag: "Community Walk", title: "Community Walk for Inclusion — May 18", body: "A family-friendly walk and picnic at Lekki Conservation Centre. Save the date!", time: "3 weeks ago", location: "Lekki Conservation Centre" },
+] as const;

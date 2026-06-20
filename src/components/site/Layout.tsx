@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 
 const NAV = [
   { to: "/", label: "Home" },
+  { to: "/community", label: "Community" },
   { to: "/about", label: "About" },
   { to: "/programs", label: "Programs" },
   { to: "/get-help", label: "Get Help" },
@@ -102,24 +103,24 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
         <div>
           <div className="text-2xl font-bold font-display">elch<span className="text-accent">AY</span></div>
-          <p className="mt-3 text-sm opacity-85">Advocacy. Education. Treatment. Walking with families of children with autism and developmental disabilities — with dignity and hope.</p>
+          <p className="mt-3 text-sm opacity-85">A community hub for families, professionals, volunteers, donors and partners advancing inclusion for autistic children and children with neurological conditions in Nigeria.</p>
+        </div>
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider opacity-90">Join the Community</h3>
+          <ul className="mt-3 space-y-2 text-sm opacity-90">
+            <li><Link to="/community" className="hover:underline">Community Hub</Link></li>
+            <li><Link to="/get-help" className="hover:underline">Get Support</Link></li>
+            <li><Link to="/volunteer" className="hover:underline">Volunteer</Link></li>
+            <li><Link to="/partners" className="hover:underline">Partner With Us</Link></li>
+          </ul>
         </div>
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider opacity-90">Explore</h3>
           <ul className="mt-3 space-y-2 text-sm opacity-90">
             <li><Link to="/about" className="hover:underline">About Us</Link></li>
             <li><Link to="/programs" className="hover:underline">Our Programs</Link></li>
-            <li><Link to="/stories" className="hover:underline">Success Stories</Link></li>
+            <li><Link to="/stories" className="hover:underline">Community Stories</Link></li>
             <li><Link to="/blog" className="hover:underline">News & Blog</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider opacity-90">Take Action</h3>
-          <ul className="mt-3 space-y-2 text-sm opacity-90">
-            <li><Link to="/donate" className="hover:underline">Donate</Link></li>
-            <li><Link to="/volunteer" className="hover:underline">Volunteer</Link></li>
-            <li><Link to="/partners" className="hover:underline">Partner With Us</Link></li>
-            <li><Link to="/get-help" className="hover:underline">Request Support</Link></li>
           </ul>
         </div>
         <div>
