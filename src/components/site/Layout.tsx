@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
+import logoAsset from "@/assets/elchay-logo.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -20,14 +21,19 @@ const NAV = [
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold text-primary">
-      <span className="inline-grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-        e
-      </span>
-      <span>elch<span className="text-accent">AY</span></span>
+    <Link to="/" className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
+      <img
+        src={logoAsset.url}
+        alt="Elchay Autism Initiative"
+        className="h-10 w-auto object-contain sm:h-11"
+        loading="eager"
+        width="160"
+        height="44"
+      />
     </Link>
   );
 }
+
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -102,7 +108,14 @@ function Footer() {
     <footer className="mt-24 border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
         <div>
-          <div className="text-2xl font-bold font-display">elch<span className="text-accent">AY</span></div>
+          <img
+            src={logoAsset.url}
+            alt="Elchay Autism Initiative"
+            className="h-9 w-auto object-contain"
+            loading="lazy"
+            width="140"
+            height="36"
+          />
           <p className="mt-3 text-sm opacity-85">A community hub for families, professionals, volunteers, donors and partners advancing inclusion for autistic children and children with neurological conditions in Nigeria.</p>
         </div>
         <div>
@@ -125,7 +138,7 @@ function Footer() {
         </div>
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider opacity-90">Stay In Touch</h3>
-          <p className="mt-3 text-sm opacity-90">@elchayautisminitiative</p>
+          <p className="mt-3 text-sm opacity-90"><a className="hover:underline" href="https://www.instagram.com/elchayautism_initiative" target="_blank" rel="noreferrer">@elchayautism_initiative</a></p>
           <p className="mt-1 text-sm opacity-90"><a className="hover:underline" href="mailto:elchayautismorg@gmail.com">elchayautismorg@gmail.com</a></p>
           <p className="mt-1 text-sm opacity-90">WhatsApp: <a className="hover:underline" href="https://wa.me/2347039593543">+234 703 959 3543</a></p>
         </div>

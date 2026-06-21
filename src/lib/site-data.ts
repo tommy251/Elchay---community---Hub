@@ -41,6 +41,7 @@ export const POSTS = [
 export const PARTNERS = [
   "Lagos State Ministry of Health", "UNICEF Nigeria", "Special Needs Initiative",
   "Bright Future Schools", "Carecorp Hospitals", "First Bank Foundation",
+  "Zeebah Foundation", "Ike Foundation for Autism",
 ] as const;
 
 export const COMMUNITY_PULSE = [
