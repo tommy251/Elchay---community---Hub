@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
-import logoAsset from "@/assets/elchay-logo.png";
+const logoAsset = "/elchay-logo.png";
 
 const NAV = [
   { to: "/", label: "Home" },
