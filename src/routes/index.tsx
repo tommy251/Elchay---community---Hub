@@ -18,14 +18,15 @@ import {
   Megaphone,
 } from "lucide-react";
 import heroPoster from "@/assets/hero-therapy.jpg";
-import heroVideo from "@/assets/hero-dancing.mp4.asset.json";
-import successStoryVideo from "@/assets/success-story.mp4.asset.json";
 import familyImg from "@/assets/family.jpg";
 import programsImg from "@/assets/programs.jpg";
-import elem1 from "@/assets/elc-elem-1.png.asset.json";
-import elem2 from "@/assets/elc-elem-2.png.asset.json";
-import elem3 from "@/assets/elc-elem-3.png.asset.json";
-import elem4 from "@/assets/elc-elem-4.png.asset.json";
+
+const heroVideo = "/hero-dancing.mp4";
+const successStoryVideo = "/success-story.mp4";
+const elem1 = "/elc-elem-1.png";
+const elem2 = "/elc-elem-2.png";
+const elem3 = "/elc-elem-3.png";
+const elem4 = "/elc-elem-4.png";
 import { Section } from "@/components/site/Layout";
 import { CountUp } from "@/components/site/CountUp";
 import { PROGRAMS, STORIES, EVENTS, COMMUNITY_PULSE } from "@/lib/site-data";
@@ -122,7 +123,7 @@ function Home() {
           </div>
           <div className="relative">
             <video
-              src={heroVideo.url}
+              src={heroVideo}
               poster={heroPoster}
               autoPlay
               muted
@@ -146,14 +147,14 @@ function Home() {
 
       {/* Success Story Video — click to play with sound */}
       <section className="relative overflow-hidden border-b border-border bg-secondary/40">
-        <img src={elem1.url} alt="" aria-hidden className="pointer-events-none absolute -top-10 -left-10 h-48 w-48 opacity-60 sm:h-64 sm:w-64" />
-        <img src={elem2.url} alt="" aria-hidden className="pointer-events-none absolute -top-6 right-0 h-40 w-40 opacity-70 sm:h-56 sm:w-56" />
-        <img src={elem3.url} alt="" aria-hidden className="pointer-events-none absolute bottom-0 -left-6 h-40 w-52 opacity-60 sm:h-48 sm:w-64" />
-        <img src={elem4.url} alt="" aria-hidden className="pointer-events-none absolute -bottom-8 right-0 h-40 w-52 opacity-60 sm:h-48 sm:w-64" />
+        <img src={elem1} alt="" aria-hidden className="pointer-events-none absolute -top-10 -left-10 h-48 w-48 opacity-60 sm:h-64 sm:w-64" />
+        <img src={elem2} alt="" aria-hidden className="pointer-events-none absolute -top-6 right-0 h-40 w-40 opacity-70 sm:h-56 sm:w-56" />
+        <img src={elem3} alt="" aria-hidden className="pointer-events-none absolute bottom-0 -left-6 h-40 w-52 opacity-60 sm:h-48 sm:w-64" />
+        <img src={elem4} alt="" aria-hidden className="pointer-events-none absolute -bottom-8 right-0 h-40 w-52 opacity-60 sm:h-48 sm:w-64" />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:px-6 lg:py-20">
           <div className="overflow-hidden rounded-3xl bg-primary shadow-xl">
             <video
-              src={successStoryVideo.url}
+              src={successStoryVideo}
               controls
               preload="metadata"
               playsInline
