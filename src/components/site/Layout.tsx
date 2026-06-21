@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
-import logoAsset from "@/assets/elchay-logo.png.asset.json";
+import logoAsset from "@/assets/elchay-logo.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -23,7 +23,7 @@ function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
       <img
-        src={logoAsset.url}
+        src={logoAsset}
         alt="Elchay Autism Initiative"
         className="h-10 w-auto object-contain sm:h-11"
         loading="eager"
@@ -109,7 +109,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
         <div>
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="Elchay Autism Initiative"
             className="h-9 w-auto object-contain"
             loading="lazy"
