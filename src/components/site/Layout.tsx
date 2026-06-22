@@ -2,7 +2,9 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
-const logoAsset = "/elchay-logo.png";
+import logoAsset from "@/assets/elchay-logo.png.asset.json";
+import elem1 from "@/assets/elc-elem-1.png.asset.json";
+import elem4 from "@/assets/elc-elem-4.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -23,7 +25,7 @@ function Logo() {
   return (
     <Link to="/" className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded">
       <img
-        src={logoAsset}
+        src={logoAsset.url}
         alt="Elchay Autism Initiative"
         className="h-10 w-auto object-contain sm:h-11"
         loading="eager"
@@ -109,7 +111,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
         <div>
           <img
-            src={logoAsset}
+            src={logoAsset.url}
             alt="Elchay Autism Initiative"
             className="h-9 w-auto object-contain"
             loading="lazy"
@@ -152,7 +154,16 @@ function Footer() {
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="relative flex min-h-dvh flex-col">
+      {/* Site-wide brand pattern background */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <img src={elem1.url} alt="" className="absolute -left-24 top-24 w-[28rem] opacity-[0.07] rotate-[-12deg]" />
+        <img src={elem4.url} alt="" className="absolute -right-32 top-[40vh] w-[34rem] opacity-[0.06] rotate-[8deg]" />
+        <img src={elem1.url} alt="" className="absolute left-[20%] top-[110vh] w-[22rem] opacity-[0.05] rotate-[24deg]" />
+        <img src={elem4.url} alt="" className="absolute -left-20 top-[180vh] w-[30rem] opacity-[0.06] rotate-[-18deg]" />
+        <img src={elem1.url} alt="" className="absolute right-[5%] top-[240vh] w-[26rem] opacity-[0.06] rotate-[15deg]" />
+        <img src={elem4.url} alt="" className="absolute -right-24 top-[320vh] w-[32rem] opacity-[0.05] rotate-[-6deg]" />
+      </div>
       <Header />
       <main id="main" className="flex-1">{children}</main>
       <Footer />

@@ -20,13 +20,14 @@ import {
 import heroPoster from "@/assets/hero-therapy.jpg";
 import familyImg from "@/assets/family.jpg";
 import programsImg from "@/assets/programs.jpg";
-
+ 
 const heroVideo = "/hero-dancing.mp4";
 const successStoryVideo = "/success-story.mp4";
 const elem1 = "/elc-elem-1.png";
 const elem2 = "/elc-elem-2.png";
 const elem3 = "/elc-elem-3.png";
 const elem4 = "/elc-elem-4.png";
+const logoAsset = "/elchay-logo.png";
 import { Section } from "@/components/site/Layout";
 import { CountUp } from "@/components/site/CountUp";
 import { PROGRAMS, STORIES, EVENTS, COMMUNITY_PULSE } from "@/lib/site-data";
@@ -92,6 +93,13 @@ function Home() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-6 lg:py-20">
           <div>
+            <img
+              src={logoAsset}
+              alt="Elchay Autism Initiative"
+              className="mb-6 h-16 w-auto object-contain sm:h-20"
+              width="280"
+              height="80"
+            />
             <span className="inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
               Community Hub
             </span>
@@ -146,7 +154,7 @@ function Home() {
       </section>
 
       {/* Success Story Video — click to play with sound */}
-      <section className="relative overflow-hidden border-b border-border bg-secondary/40">
+<section className="relative overflow-hidden border-b border-border bg-secondary/40">
         <img src={elem1} alt="" aria-hidden className="pointer-events-none absolute -top-10 -left-10 h-48 w-48 opacity-60 sm:h-64 sm:w-64" />
         <img src={elem2} alt="" aria-hidden className="pointer-events-none absolute -top-6 right-0 h-40 w-40 opacity-70 sm:h-56 sm:w-56" />
         <img src={elem3} alt="" aria-hidden className="pointer-events-none absolute bottom-0 -left-6 h-40 w-52 opacity-60 sm:h-48 sm:w-64" />
