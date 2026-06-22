@@ -4,7 +4,7 @@ import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
 const logoAsset = "/elchay-logo.png";
 const elem1 = "/elc-elem-1.png";
-const elem4 = "/elc-elem-4.png.";
+const elem4 = "/elc-elem-4.png";
 
 const NAV = [
   { to: "/", label: "Home" },
