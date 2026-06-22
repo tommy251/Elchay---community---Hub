@@ -2,11 +2,10 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
-const elem4 = "/elc-elem-4.png";
 const logoAsset = "/elchay-logo.png";
 const elem1 = "/elc-elem-1.png";
-const elem2 = "/elc-elem-2.png";
-const elem3 = "/elc-elem-3.png";
+const elem4 = "/elc-elem-4.png.";
+
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/community", label: "Community" },
@@ -28,10 +27,10 @@ function Logo() {
       <img
         src={logoAsset}
         alt="Elchay Autism Initiative"
-        className="h-20 w-auto object-contain sm:h-24"
+        className="h-14 w-auto object-contain sm:h-16"
         loading="eager"
-        width="160"
-        height="44"
+        width="180"
+        height="64"
       />
     </Link>
   );
@@ -116,8 +115,8 @@ function Footer() {
             alt="Elchay Autism Initiative"
             className="h-12 w-auto object-contain"
             loading="lazy"
-            width="140"
-            height="36"
+            width="160"
+            height="48"
           />
           <p className="mt-3 text-sm opacity-85">A community hub for families, professionals, volunteers, donors and partners advancing inclusion for autistic children and children with neurological conditions in Nigeria.</p>
         </div>
