@@ -28,7 +28,7 @@ function Logo() {
       <img
         src={logoAsset}
         alt="Elchay Autism Initiative"
-        className="h-10 w-auto object-contain sm:h-11"
+        className="h-16 w-auto object-contain sm:h-20"
         loading="eager"
         width="160"
         height="44"
@@ -114,7 +114,7 @@ function Footer() {
           <img
             src={logoAsset}
             alt="Elchay Autism Initiative"
-            className="h-9 w-auto object-contain"
+            className="h-12 w-auto object-contain"
             loading="lazy"
             width="140"
             height="36"
