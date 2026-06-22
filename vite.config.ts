@@ -19,7 +19,6 @@ export default defineConfig({
       prerender: {
         enabled: true,
         crawlLinks: false,
-        renderTimeout: 10000,
       },
       pages: [
         { path: "/" },
