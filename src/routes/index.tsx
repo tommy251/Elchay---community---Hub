@@ -20,7 +20,7 @@ import {
 import heroPoster from "@/assets/hero-therapy.jpg";
 const heroVideo = "/hero-dancing.mp4";
 const successStoryVideo = "/success-story.mp4";
-const familyImg = "src/assets/family.JPG";
+const familyImg = "/family.jpg";
 import programsImg from "@/assets/programs.jpg";
 const elem1 = "/elc-elem-1.png";
 const elem2 = "/elc-elem-2.png";
