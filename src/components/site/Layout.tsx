@@ -2,10 +2,11 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Heart, Search } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
+const elem4 = "/elc-elem-4.png";
 const logoAsset = "/elchay-logo.png";
 const elem1 = "/elc-elem-1.png";
-const elem4 = "/elc-elem-4.png";
-const familyImg = "/family.jpg";
+const elem2 = "/elc-elem-2.png";
+const elem3 = "/elc-elem-3.png";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/community", label: "Community" },
@@ -27,10 +28,10 @@ function Logo() {
       <img
         src={logoAsset}
         alt="Elchay Autism Initiative"
-        className="h-14 w-auto object-contain sm:h-16"
+        className="h-10 w-auto object-contain sm:h-11"
         loading="eager"
-        width="180"
-        height="64"
+        width="160"
+        height="44"
       />
     </Link>
   );
@@ -39,69 +40,80 @@ function Logo() {
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const [fontScale, setFontScale] = useState(1);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
-    document.documentElement.style.fontSize = `${fontScale * 100}%`;
-  }, [fontScale]);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:rounded focus:bg-primary focus:px-3 focus:py-1 focus:text-primary-foreground">Skip to content</a>
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 lg:px-6">
-        <Logo />
-        <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-1 rounded-full border border-border bg-card px-2 py-1 text-xs md:flex" aria-label="Adjust text size">
-            <button onClick={() => setFontScale((s) => Math.max(0.9, s - 0.1))} className="rounded px-2 hover:bg-muted" aria-label="Decrease text size">A−</button>
-            <button onClick={() => setFontScale(1)} className="rounded px-2 hover:bg-muted" aria-label="Reset text size">A</button>
-            <button onClick={() => setFontScale((s) => Math.min(1.3, s + 0.1))} className="rounded px-2 hover:bg-muted" aria-label="Increase text size">A+</button>
+    <>
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:rounded focus:bg-primary focus:px-3 focus:py-1 focus:text-primary-foreground">Skip to content</a>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-6">
+          <Logo />
+          <div className="flex items-center gap-3">
+            <Link
+              to="/donate"
+              className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition hover:brightness-95"
+            >
+              <Heart className="h-4 w-4" aria-hidden /> Donate
+            </Link>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="inline-grid h-10 w-10 place-items-center rounded-md border border-border transition hover:bg-muted"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
-          <Link
-            to="/donate"
-            className="hidden items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition hover:brightness-95 sm:inline-flex"
-          >
-            <Heart className="h-4 w-4" aria-hidden /> Donate
-          </Link>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="inline-grid h-10 w-10 place-items-center rounded-md border border-border lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
-      </div>
-      <nav aria-label="Main" className="mx-auto hidden max-w-7xl items-center gap-1 px-4 pb-3 lg:flex lg:px-6">
-        {NAV.map((n) => (
-          <Link
-            key={n.to}
-            to={n.to}
-            className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
-            activeProps={{ className: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground" }}
-            activeOptions={{ exact: n.to === "/" }}
-          >
-            {n.label}
-          </Link>
-        ))}
-        <Link to="/donate" className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground" activeProps={{ className: "bg-primary text-primary-foreground" }}>Donate</Link>
-      </nav>
+      </header>
+
+      {/* Full-screen overlay nav */}
       {open && (
-        <nav aria-label="Mobile" className="border-t border-border bg-card lg:hidden">
-          <ul className="mx-auto flex max-w-7xl flex-col px-2 py-2">
-            {[...NAV, { to: "/donate" as const, label: "Donate" }].map((n) => (
-              <li key={n.to}>
-                <Link to={n.to} className="block rounded-md px-3 py-2.5 text-base font-medium text-foreground hover:bg-muted" activeProps={{ className: "bg-primary/10 text-primary" }}>
-                  {n.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="fixed inset-0 z-50 flex flex-col bg-primary text-primary-foreground overflow-y-auto">
+          {/* Overlay top bar */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-primary-foreground/15 shrink-0">
+            <Link to="/" onClick={() => setOpen(false)}>
+              <img src={logoAsset} alt="Elchay Autism Initiative" className="h-14 w-auto object-contain brightness-0 invert" />
+            </Link>
+            <button
+              onClick={() => setOpen(false)}
+              className="inline-grid h-10 w-10 place-items-center rounded-md border border-primary-foreground/30 transition hover:bg-primary-foreground/10"
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          {/* Nav links */}
+          <nav className="flex flex-1 flex-col justify-center px-8 py-8 lg:px-20" aria-label="Main navigation">
+            <ul className="space-y-1">
+              {[...NAV, { to: "/donate" as const, label: "Donate" }].map((n) => (
+                <li key={n.to}>
+                  <Link
+                    to={n.to}
+                    onClick={() => setOpen(false)}
+                    className="block py-2.5 font-display text-2xl font-bold text-primary-foreground/70 transition hover:text-accent sm:text-3xl lg:text-4xl"
+                    activeProps={{ className: "block py-2.5 font-display text-2xl font-bold text-accent sm:text-3xl lg:text-4xl" }}
+                    activeOptions={{ exact: n.to === "/" }}
+                  >
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {/* Overlay footer info */}
+          <div className="border-t border-primary-foreground/15 px-8 py-5 text-sm opacity-70 shrink-0 lg:px-20">
+            <p>elchayautismorg@gmail.com · +234 703 959 3543</p>
+          </div>
+        </div>
       )}
-    </header>
+    </>
   );
 }
 
@@ -113,10 +125,10 @@ function Footer() {
           <img
             src={logoAsset}
             alt="Elchay Autism Initiative"
-            className="h-12 w-auto object-contain"
+            className="h-9 w-auto object-contain"
             loading="lazy"
-            width="160"
-            height="48"
+            width="140"
+            height="36"
           />
           <p className="mt-3 text-sm opacity-85">A community hub for families, professionals, volunteers, donors and partners advancing inclusion for autistic children and children with neurological conditions in Nigeria.</p>
         </div>
@@ -157,7 +169,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="relative flex min-h-dvh flex-col">
       {/* Site-wide brand pattern background */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <img src={elem1} alt="" className="absolute -left-24 top-24 w-[28rem] opacity-[0.07] rotate-[-12deg]" />
         <img src={elem4} alt="" className="absolute -right-32 top-[40vh] w-[34rem] opacity-[0.06] rotate-[8deg]" />
         <img src={elem1} alt="" className="absolute left-[20%] top-[110vh] w-[22rem] opacity-[0.05] rotate-[24deg]" />
         <img src={elem4} alt="" className="absolute -left-20 top-[180vh] w-[30rem] opacity-[0.06] rotate-[-18deg]" />
