@@ -169,6 +169,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="relative flex min-h-dvh flex-col">
       {/* Site-wide brand pattern background */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <img src={elem1} alt="" className="absolute -left-24 top-24 w-[28rem] opacity-[0.07] rotate-[-12deg]" />
         <img src={elem4} alt="" className="absolute -right-32 top-[40vh] w-[34rem] opacity-[0.06] rotate-[8deg]" />
         <img src={elem1} alt="" className="absolute left-[20%] top-[110vh] w-[22rem] opacity-[0.05] rotate-[24deg]" />
         <img src={elem4} alt="" className="absolute -left-20 top-[180vh] w-[30rem] opacity-[0.06] rotate-[-18deg]" />
