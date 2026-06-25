@@ -26,7 +26,6 @@ const elem1 = "/elc-elem-1.png";
 const elem2 = "/elc-elem-2.png";
 const elem3 = "/elc-elem-3.png";
 const elem4 = "/elc-elem-4.png";
-const logoAsset = "/elchay-logo.png";
 import { Section } from "@/components/site/Layout";
 import { CountUp } from "@/components/site/CountUp";
 import { PROGRAMS, STORIES, EVENTS, COMMUNITY_PULSE } from "@/lib/site-data";
@@ -92,13 +91,6 @@ function Home() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-6 lg:py-20">
           <div>
-            <img
-              src={logoAsset}
-              alt="Elchay Autism Initiative"
-              className="mb-8 h-28 w-auto object-contain sm:h-40"
-              width="400"
-              height="120"
-            />
             <span className="inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
               Community Hub
             </span>
