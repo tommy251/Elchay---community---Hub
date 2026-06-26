@@ -28,7 +28,7 @@ function Logo() {
       <img
         src={logoAsset}
         alt="Elchay Autism Initiative"
-        className="h-16 w-auto object-contain sm:h-20"
+        className="h-10 w-auto object-contain sm:h-11"
         loading="eager"
         width="160"
         height="44"
